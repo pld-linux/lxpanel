@@ -8,8 +8,12 @@ Source0:	http://downloads.sourceforge.net/lxde/%{name}-%{version}.tar.gz
 # Source0-md5:	3c6b5498b5f4109c3913b10a66809fe6
 URL:		http://www.lxde.org/
 BuildRequires:	alsa-lib-devel
+BuildRequires:	gawk
+BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	intltool
 BuildRequires:	menu-cache-devel
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
