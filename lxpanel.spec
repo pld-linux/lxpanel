@@ -55,10 +55,22 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/lxpanel
 %dir %{_libdir}/lxpanel/plugins
 %attr(755,root,root) %{_libdir}/lxpanel/plugins/*.so
-%{_datadir}/lxpanel
-%{_mandir}/man1/lxpanel*
+%{_mandir}/man1/lxpanel.1*
+%{_mandir}/man1/lxpanelctl.1*
+
+%dir %{_datadir}/lxpanel
+%{_datadir}/lxpanel/profile
+%{_datadir}/lxpanel/ui
+
+%dir %{_datadir}/lxpanel/images
+%{_datadir}/lxpanel/images/*.png
+
+%dir %{_datadir}/lxpanel/images/xkb-flags
+# TODO: lang tags here
+%{_datadir}/lxpanel/images/xkb-flags/*.png
 
 %files devel
+%defattr(644,root,root,755)
 %dir %{_includedir}/lxpanel
 %{_includedir}/lxpanel/plugin.h
 %{_pkgconfigdir}/lxpanel.pc
