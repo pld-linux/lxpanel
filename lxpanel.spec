@@ -6,7 +6,7 @@ License:	GPL v2
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/lxde/%{name}-%{version}.tar.gz
 # Source0-md5:	3c6b5498b5f4109c3913b10a66809fe6
-URL:		http://www.lxde.org/
+URL:		http://wiki.lxde.org/en/LXPanel
 BuildRequires:	alsa-lib-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.12.0
