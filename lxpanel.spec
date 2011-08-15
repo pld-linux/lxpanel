@@ -1,11 +1,11 @@
 Summary:	LXPanel is a lightweight X11 desktop panel
 Name:		lxpanel
-Version:	0.5.6
-Release:	2
+Version:	0.5.8
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/lxde/%{name}-%{version}.tar.gz
-# Source0-md5:	3c6b5498b5f4109c3913b10a66809fe6
+# Source0-md5:	129fae75d1cd3983fd94542c573a70a1
 URL:		http://wiki.lxde.org/en/LXPanel
 BuildRequires:	alsa-lib-devel
 BuildRequires:	gettext-devel
@@ -39,11 +39,10 @@ Pliki nagłówkowe biblioteki lxpanel.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/{frp,ur_PK}
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/{frp,ur_PK}
 
 %find_lang %{name}
 
