@@ -1,20 +1,23 @@
 Summary:	LXPanel is a lightweight X11 desktop panel
 Name:		lxpanel
-Version:	0.5.9
+Version:	0.5.10
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/lxde/%{name}-%{version}.tar.gz
-# Source0-md5:	232eb7cfed03d126715ddccdf3a4d0ea
+# Source0-md5:	1bf3cce2a2d01c211f6897c42e8dd0bc
+Patch0:		%{name}-AM_PROG_AR.patch
+Patch1:		%{name}-automake.patch
 URL:		http://wiki.lxde.org/en/LXPanel
 BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	automake >= 1:1.12
 BuildRequires:	alsa-lib-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	intltool
 BuildRequires:	libiw-devel
 BuildRequires:	libwnck2-devel
+BuildRequires:	libtool
 BuildRequires:	menu-cache-devel
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -36,11 +39,15 @@ Pliki nagłówkowe biblioteki lxpanel.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 %{__aclocal}
-%{__automake}
 %{__autoheader}
+%{__libtoolize}
+%{__intltoolize}
+%{__automake}
 %{__autoconf}
 %configure
 %{__make} V=1
