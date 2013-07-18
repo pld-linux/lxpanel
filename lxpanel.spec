@@ -1,7 +1,7 @@
 Summary:	LXPanel is a lightweight X11 desktop panel
 Name:		lxpanel
 Version:	0.5.12
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/lxde/%{name}-%{version}.tar.gz
@@ -76,7 +76,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/lxpanelctl.1*
 
 %dir %{_datadir}/lxpanel
-%{_datadir}/lxpanel/xkeyboardconfig/*.cfg
 %{_datadir}/lxpanel/profile
 %{_datadir}/lxpanel/ui
 
