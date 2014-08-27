@@ -1,13 +1,12 @@
+# TODO:  /etc/xdg/lxpanel - proper tags/flags etc.
 Summary:	LXPanel is a lightweight X11 desktop panel
 Name:		lxpanel
-Version:	0.5.12
-Release:	2
+Version:	0.7.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://downloads.sourceforge.net/lxde/%{name}-%{version}.tar.gz
-# Source0-md5:	30def9a0aa3c517e102295e8a7bc17fd
-Patch0:		%{name}-werror.patch
-Patch1:		%{name}-automake.patch
+Source0:	http://downloads.sourceforge.net/lxde/%{name}-%{version}.tar.xz
+# Source0-md5:	39698de2c5eda2837607762c9f522cd0
 URL:		http://wiki.lxde.org/en/LXPanel
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.12
@@ -20,6 +19,9 @@ BuildRequires:	libwnck2-devel
 BuildRequires:	libtool
 BuildRequires:	menu-cache-devel
 BuildRequires:	pkgconfig
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
+Requires:	lxmenu-data
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -39,8 +41,6 @@ Pliki nagłówkowe biblioteki lxpanel.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
 
 %build
 %{__aclocal}
@@ -76,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/lxpanelctl.1*
 
 %dir %{_datadir}/lxpanel
-%{_datadir}/lxpanel/profile
+##%{_datadir}/lxpanel/profile
 %{_datadir}/lxpanel/ui
 
 %dir %{_datadir}/lxpanel/images
@@ -89,8 +89,10 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/lxpanel/xkeyboardconfig
 %{_datadir}/lxpanel/xkeyboardconfig/*.cfg
 
+%{_sysconfdir}/xdg/lxpanel
+
 %files devel
 %defattr(644,root,root,755)
 %dir %{_includedir}/lxpanel
-%{_includedir}/lxpanel/plugin.h
+%{_includedir}/lxpanel/*.h
 %{_pkgconfigdir}/lxpanel.pc
