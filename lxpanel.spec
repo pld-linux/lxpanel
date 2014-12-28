@@ -11,7 +11,7 @@ URL:		http://wiki.lxde.org/en/LXPanel
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.12
 BuildRequires:	alsa-lib-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	intltool
 BuildRequires:	libiw-devel
