@@ -17,6 +17,7 @@ BuildRequires:	intltool
 BuildRequires:	libiw-devel
 BuildRequires:	libwnck2-devel
 BuildRequires:	libtool
+BuildRequires:	libfm-devel
 BuildRequires:	menu-cache-devel
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
