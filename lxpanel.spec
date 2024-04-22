@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_with	gtk3		# use GTK+3 instead of GTK+2
+%bcond_without	gtk3		# use GTK+3 instead of GTK+2
 %bcond_without	appindicator	# libindicator support (only GTK+2 variant supported)
 
 %if %{with gtk3}
@@ -10,7 +10,7 @@ Summary:	LXPanel - a lightweight X11 desktop panel
 Summary(pl.UTF-8):	LXPanel - lekki panel pulpitu X11
 Name:		lxpanel
 Version:	0.10.1
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	https://downloads.sourceforge.net/lxde/%{name}-%{version}.tar.xz
@@ -31,7 +31,8 @@ BuildRequires:	libfm-devel >= 1.2.0
 %{?with_appindicator:BuildRequires:	libindicator-devel >= 0.3.0}
 BuildRequires:	libiw-devel
 BuildRequires:	libtool >= 2:2.2
-BuildRequires:	libwnck2-devel
+%{!?with_gtk3:BuildRequires:	libwnck2-devel}
+%{?with_gtk3:BuildRequires:	libwnck-devel}
 BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	menu-cache-devel
 BuildRequires:	pkgconfig
@@ -90,7 +91,8 @@ Pliki nagłówkowe dla wtyczek lxpanelu.
 %{__automake}
 %configure \
 	%{?with_appindicator:--enable-indicator-support} \
-	--disable-silent-rules
+	--disable-silent-rules \
+	%{?with_gtk3:--enable-gtk3}
 
 %{__make}
 
