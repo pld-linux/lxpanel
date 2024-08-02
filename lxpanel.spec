@@ -10,11 +10,12 @@ Summary:	LXPanel - a lightweight X11 desktop panel
 Summary(pl.UTF-8):	LXPanel - lekki panel pulpitu X11
 Name:		lxpanel
 Version:	0.10.1
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	https://downloads.sourceforge.net/lxde/%{name}-%{version}.tar.xz
 # Source0-md5:	c922d044789c3d7ae028f0e80dea18b0
+Patch0:		gcc14-incompatible-pointer-types.patch
 URL:		http://www.lxde.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.12
@@ -81,6 +82,7 @@ Pliki nagłówkowe dla wtyczek lxpanelu.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
